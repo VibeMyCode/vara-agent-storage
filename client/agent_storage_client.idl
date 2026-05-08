@@ -3,9 +3,12 @@ constructor {
 };
 
 service AgentStorage {
-  Put : (key: str, value: vec u8, ttl_blocks: u32) -> result (null, str);
-  Remove : (key: str) -> opt vec u8;
-  query Get : (key: str) -> opt vec u8;
+  Put : (key: str, value: str, ttl_blocks: u32) -> result (null, str);
+  Remove : (key: str) -> opt str;
+  query Get : (key: str) -> opt str;
   query Keys : () -> vec str;
+  set_fee_put : (fee: u128);
+  set_fee_get : (fee: u128);
+  set_fee_remove : (fee: u128);
+  query get_fees : () -> (u128, u128, u128);
 };
-
