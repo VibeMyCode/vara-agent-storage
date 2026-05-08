@@ -1,0 +1,11 @@
+constructor {
+  Create : ();
+};
+
+service AgentStorage {
+  Put : (key: str, value: vec u8, ttl_blocks: u32) -> result (null, str);
+  Remove : (key: str) -> opt vec u8;
+  query Get : (key: str) -> opt vec u8;
+  query Keys : () -> vec str;
+};
+
